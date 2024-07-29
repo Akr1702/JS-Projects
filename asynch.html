@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous Programming</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+       
+    </style>
+</head>
+<body>
+
+    <h1>Output in Console : </h1>
+    <h2> * Asynchronous Programming</h2>
+    <script>
+
+    //     console.log("i am one")
+    //     console.log("i am two")
+    //     console.log("i am three")
+
+    //     setTimeout(()=>
+    //     {
+    //         for(let i=0;i<1000;i++)
+    // {
+    //     console.log(i)
+    // }
+    //     },2000)
+        
+
+    // console.log("i am four")
+    // console.log("i am five")
+
+    // callback function ----> callback hell(problem) -------> promises --------> promise chain(problem) ------> async await
+
+
+        // Callback Hell Problem
+
+    // function Food(dish,order)
+    // {
+    //     setTimeout(()=>{
+    //         console.log(dish)
+    //         if(order)
+    //     {
+    //         order() 
+    //     }
+            
+    //     },2000)
+    // }
+
+    // Food("pizza",()=> {
+    //     Food("burger",()=> {
+    //     Food("maggi",()=> {
+    //     Food("pasta")
+    // })
+    // })
+    // })
+    
+
+    // using promises 
+
+    // let prom= new Promise((resolve, reject) => {
+    //     // setTimeout(() => {
+    //     //     resolve("i am resolved")
+    //     //     }, 2000)
+
+        
+    //     if(true)
+    // {
+    //     resolve("i am resolved")
+    // }
+    // else
+    // {
+    //     reject("i am rejected")
+    // }
+    // })
+    
+    // prom.then((response)=>{
+    //     console.log(response)
+    // }).catch((error)=>{
+    //     console.log(error)
+    // })
+
+
+
+        
+
+//     function Food(dish)
+//     {
+//         return new Promise((resolve, reject) => {
+        
+
+        
+//     setTimeout(() => {
+//         console.log(dish)
+//             resolve(dish)
+//             }, 3000)
+//     })
+// }
+
+// Food("pizza").then(()=>{                                     // promise chain problem
+//     Food("burger")
+//    .then(()=>{
+//         Food("maggi")
+//         .then(()=>{
+//             Food("pasta")
+//         })
+//     })
+// })
+
+
+    // Async await Solution
+
+function Food(dish)
+    {
+        return new Promise((resolve, reject) => {
+        
+
+        
+    setTimeout(() => {
+      //  console.log(dish)
+            resolve(dish)
+            },3000)
+    })
+}
+
+async function output()
+{
+    let pizza = await Food("pizza");
+    console.log(pizza)
+
+    let burger = await Food("burger");
+    console.log(burger)
+
+    let maggi = await Food("maggi")
+    console.log(maggi)
+
+    let pasta = await Food("pasta")
+    console.log(pasta)
+        
+}
+
+output();
+    
+    
+        
+    </script>
+</body>
+</html>
